@@ -1,0 +1,82 @@
+﻿@model Library_management2.Models.Transaction
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Transaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TansDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TansDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.BookTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.BookTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transactions1.BookTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transactions1.BookTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transaction1.BookTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transaction1.BookTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TransID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
