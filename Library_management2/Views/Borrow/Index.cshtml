@@ -126,21 +126,6 @@
                     "emptyTable": "No data found, Add new items"
                 }
             });
-         $('#example tbody').on('click', 'a.btn-info', function () {
-                var bookId = table.row($(this).parents('tr')).data().BookID;
-                $.ajax({
-                    url: "/Borrow/RequestBook",
-                    type: "POST",
-                    data: { bookId: bookId },
-                    success: function (result) {
-                        // Assuming the request was successful, reload DataTable
-                        table.ajax.reload();
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Error during request", status, error);
-                    }
-                });
-            });
         });
     </script>
 }

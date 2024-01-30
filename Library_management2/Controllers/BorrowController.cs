@@ -96,8 +96,11 @@ namespace Library_management2.Controllers
                     if (book.BookCopies > 0)
                     {
                         book.BookCopies = book.BookCopies - 1;
+                        Guid guid = Guid.NewGuid();
+                        byte[] bytes = guid.ToByteArray();
                         Transaction trans = new Transaction()
                         {
+                            TransID = BitConverter.ToInt32(bytes, 0),
                             BookID = book.BookID,
                             BookTitle = book.BookTitle,
                             TansDate = DateTime.Now,

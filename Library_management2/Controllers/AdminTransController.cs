@@ -1,4 +1,5 @@
 ﻿using Library_management2.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +21,19 @@ namespace Library_management2.Controllers
         // Returns all book requests in json format.
         public ActionResult GetAllRequests()
         {
-            var transactionList = db.Transactions.Where(r => r.TransStatus == "Requested").ToList();
-            return Json(new { data = transactionList }, JsonRequestBehavior.AllowGet);
+                db.Configuration.ProxyCreationEnabled = false;
+                var transactionList = db.Transactions
+                .Where(r => r.TransStatus == "Requested")
+                .Select(t => new TransactionViewModel
+                {
+                    BookTitle = t.BookTitle,
+                    TansDate = t.TansDate,
+                    UserName = t.UserName,
+                    TransID = t.TransID,
+
+                })
+                .ToList();
+                return Json(new {data = transactionList}, JsonRequestBehavior.AllowGet); 
         }
         // Accepts the book request.
         public ActionResult AcceptRequest(int? tranId)
@@ -83,7 +95,18 @@ namespace Library_management2.Controllers
         // Returns all accepted books in json format.
         public ActionResult GetAllAccepted()
         {
-            var transactionList = db.Transactions.Where(r => r.TransStatus == "Accepted").ToList();
+            db.Configuration.ProxyCreationEnabled = false;
+            var transactionList = db.Transactions
+            .Where(r => r.TransStatus == "Accepted")
+            .Select(t => new TransactionViewModel
+            {
+                BookTitle = t.BookTitle,
+                TansDate = t.TansDate,
+                UserName = t.UserName,
+                TransID = t.TransID,
+
+            })
+            .ToList();
             return Json(new { data = transactionList }, JsonRequestBehavior.AllowGet);
         }
         // Returns admin return view, here admin can accept book return requests.
@@ -94,7 +117,18 @@ namespace Library_management2.Controllers
         // Returns all return books in json format.
         public ActionResult GetAllReturn()
         {
-            var transactionList = db.Transactions.Where(r => r.TransStatus == "Returned").ToList();
+            db.Configuration.ProxyCreationEnabled = false;
+            var transactionList = db.Transactions
+            .Where(r => r.TransStatus == "Returned")
+            .Select(t => new TransactionViewModel
+            {
+                BookTitle = t.BookTitle,
+                TansDate = t.TansDate,
+                UserName = t.UserName,
+                TransID = t.TransID,
+
+            })
+            .ToList();
             return Json(new { data = transactionList }, JsonRequestBehavior.AllowGet);
         }
         // Accepts the book return request.

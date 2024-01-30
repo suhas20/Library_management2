@@ -22,6 +22,7 @@ namespace Library_management2.Controllers
 
         public ActionResult GetAll()
         {
+            db.Configuration.ProxyCreationEnabled = false;
             var booklist = db.Books.ToList();
             return Json(new { data = booklist }, JsonRequestBehavior.AllowGet);
         }

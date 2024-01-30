@@ -62,12 +62,12 @@
                 },
                 "columns": [
                     { "data": "BookTitle" },
-                    { "data": "TranDate" },
+                    { "data": "TansDate" },
                     { "data": "UserName" },
                     {
-                        "data": "TranaID", "render": function (idhere) {
+                        "data": "TransID", "render": function (idhere) {
 
-                            return " <a onclick='acceptReturn()' class='btn btn-sm btn-primary text-light' data-toggle='tooltip' title='Accept return request' href='@Url.Action("AcceptReturn", "AdminTransaction")?tranId=" + idhere + "'> <i class='fas fa-check-circle'></i> Accept</a> ";
+                            return " <a onclick='acceptReturn()' class='btn btn-sm btn-primary text-light' data-toggle='tooltip' title='Accept return request' href='@Url.Action("AcceptReturn", "AdminTrans")?tranId=" + idhere + "'> <i class='fas fa-check-circle'></i> Accept</a> ";
                         },
                         "orderable": false,
                         "width": "60px"

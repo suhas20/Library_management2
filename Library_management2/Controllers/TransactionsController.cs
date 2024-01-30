@@ -17,6 +17,7 @@ namespace Library_management2.Controllers
         // GET: Transactions
         public ActionResult Index()
         {
+            db.Configuration.ProxyCreationEnabled = false;
             var transactions = db.Transactions.Include(t => t.Book).Include(t => t.Transactions1).Include(t => t.Transaction1).Include(t => t.User);
             return View(transactions.ToList());
         }
@@ -35,6 +36,7 @@ namespace Library_management2.Controllers
             }
             return View(transaction);
         }
+
 
         // GET: Transactions/Create
         public ActionResult Create()
