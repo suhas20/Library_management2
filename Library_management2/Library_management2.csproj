@@ -129,6 +129,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\UserLogin.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\LibraryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -240,7 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

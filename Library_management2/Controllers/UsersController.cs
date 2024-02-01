@@ -46,11 +46,22 @@ namespace Library_management2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,UserName,UserGender,UserEmail,UserPass")] User user)
+        public ActionResult Create([Bind(Include = "UserName,UserGender,UserEmail,UserPass")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                User users = user;
+                Guid guid = Guid.NewGuid();
+                byte[] bytes = guid.ToByteArray();
+                User NewUser = new User
+                {
+                    UserID = BitConverter.ToInt32(bytes, 0),
+                    UserName = users.UserName,
+                    UserGender = users.UserGender,
+                    UserEmail = users.UserEmail,
+                    UserPass = users.UserPass
+                };
+                db.Users.Add(NewUser);
                 db.SaveChanges();
                 return RedirectToAction("Login", "userLogin");
             }

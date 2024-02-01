@@ -1,70 +1,84 @@
 ﻿@model Library_management2.Models.User
 
 @{
-    ViewBag.Title = "Create";
+    Layout = null;
 }
 
-<h2>Create</h2>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <title>Create</title>
+    <link href="~/Content/UserLogin.css" rel="stylesheet" type="text/css" />
+</head>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
+<body style="padding:unset">
     
-    <div class="form-horizontal">
-        <h4>User</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+  @using (Html.BeginForm())
+   {
+            @Html.AntiForgeryToken()
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <div class="card-header">Signup</div>
+            <div class="card-body offset-sm-1">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <form class="container-fluid">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "" })
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserGender, htmlAttributes: new { @class = "" })
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.UserGender, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserGender, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserEmail, htmlAttributes: new { @class = "" })
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserPass, htmlAttributes: new { @class = "" })
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserPass, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </form>
+                <button type="submit" value="Create">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Create
+                </button>
+               
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">
+                            @Html.ActionLink("Sign In", "Login", "UserLogin", null, new { @class = "nav-link icon", style = "display:inline" })
+                        </button>
+                        <br />
+                        @Html.ActionLink("Back to home", "Home", "Home", null, new { @class = "nav-link icon", style = "display:inline" })
+                    </div>
+                </div>
             </div>
+        
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserGender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserGender, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserGender, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserEmail, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserPass, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserPass, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+    }
+    </body>
+</html>
 
 
-
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

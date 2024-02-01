@@ -10,10 +10,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/UserLogin.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/fontawesome-all.css" rel="stylesheet" />
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Content/UserLogin.js"></script>
 </head>
 <body style="padding:unset">
     @*@using (Html.BeginForm("Validate", "User"))*@
@@ -21,66 +21,80 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <div>
+    <div>
+        <br />
+
+        <div style="height:auto; width:110px; background-color:#d9534f">
             <br />
-
-            <div style="height:auto; width:110px; background-color:#d9534f">
-                <br />
-                <br />
-                <br />
-                <br />
-            </div>
             <br />
-            <div class="col-md-4 offset-sm-4">
-                <div class="card">
-                    <div class="card-header">Login</div>
-                    <div class="card-body offset-sm-1">
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <form class="container-fluid">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.UserEmail, htmlAttributes: new { @class = "" })
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-user"></i>
-                                    </span>
-                                    @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the email" } })
-                                </div>
-                                @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+            <br />
+            <br />
+        </div>
+        <br />
+        <div class="container" id="container">
+            <div class="form-container sign-in-container">
+                <div class="card-header">Login</div>
+                <div class="card-body offset-sm-1">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <form class="container-fluid">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserEmail, htmlAttributes: new { @class = "" })
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter the email" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
 
-                            </div>
-
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.UserPass, htmlAttributes: new { @class = "" })
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-unlock"></i>
-                                    </span>
-                                    @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control ", placeholder = "Enter the password", type = "password" } })
-                                </div>
-                                @Html.ValidationMessageFor(model => model.UserPass, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <p class="text-danger">@ViewBag.Message</p>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer">
-                        <div class="col-10 offset-1">
-                            <button type="submit" value="Login" class="btn btn-sm btn-block btn-danger">
-                                <i class="fas fa-sign-in-alt"></i>
-                                Login
-                            </button>
                         </div>
-                    </div>
-                    <div>
-                        @Html.ActionLink("New user", "Create","Users",null, null)
-                    </div>
 
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserPass, htmlAttributes: new { @class = "" })
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-unlock"></i>
+                                </span>
+                                @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control ", placeholder = "Enter the password", type = "password" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.UserPass, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <p class="text-danger">@ViewBag.Message</p>
+                        </div>
+                    </form>
+                    <button type="submit" value="Login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+                    <br />
+                    @Html.ActionLink("Back to home", "Home", "Home", null, new { @class = "nav-link icon", style = "display:inline" })
+                </div>
+
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start journey with us</p>
+                        <button class="ghost" id="signUp">
+                            @Html.ActionLink("Sign up", "Create", "Users",null, new { @class = "nav-link icon", style = "display:inline" })
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     }
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+

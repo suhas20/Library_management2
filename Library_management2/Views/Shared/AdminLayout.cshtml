@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - UrLMS</title>
+    <title>@ViewBag.Title - Sydenham Library</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/fontawesome-all.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
             <span class="icon">
                 <i class="fas fa-book-open"></i>
             </span>
-            @Html.ActionLink("UrLMS", "Index", "Books", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Sydenham Library", "Index", "Books", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,15 +29,15 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item btn-sm btn-success">
                         <i class="fas fa-home"></i>
-                        @Html.ActionLink("Home", "AdminHome", "AdminTrans", new { area = "" }, new { @class = "nav-link", style = "display:inline" })
+                        @Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "nav-link", style = "display:inline" })
                     </li>
                     <li class="nav-item btn-sm btn-success">
                         <i class="fas fa-address-card"></i>
-                        @Html.ActionLink("About", "AdminAbout", "AdminTrans", new { area = "" }, new { @class = "nav-link", style = "display:inline" })
+                        @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link", style = "display:inline" })
                     </li>
                     <li class="nav-item btn-sm btn-success">
                         <i class="fas fa-id-badge"></i>
-                        @Html.ActionLink("Contact", "AdminContact", "AdminTrans", new { area = "" }, new { @class = "nav-link", style = "display:inline" })
+                        @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link", style = "display:inline" })
                     </li>
                 </ul>
                 <ul class="navbar-nav justify-content-end" style="padding-right:50px">
