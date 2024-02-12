@@ -9,7 +9,6 @@
 
 namespace Library_management2.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -24,9 +23,7 @@ namespace Library_management2.Models
         public string UserName { get; set; }
     
         public virtual Book Book { get; set; }
-        [JsonIgnore]
         public virtual Transaction Transactions1 { get; set; }
-        [JsonIgnore]
         public virtual Transaction Transaction1 { get; set; }
         public virtual User User { get; set; }
     }
