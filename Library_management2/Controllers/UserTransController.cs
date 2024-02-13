@@ -58,7 +58,7 @@ namespace Library_management2.Controllers
             db.SaveChanges();
             db.Transactions.Remove(transaction);
             db.SaveChanges();
-            return RedirectToAction("Requested", "UserTransaction", new { userId = userId });
+            return RedirectToAction("Requested", "UserTrans", new { userId = userId });
             /* }
              catch (Exception)
              {
@@ -111,7 +111,7 @@ namespace Library_management2.Controllers
             book.BookCopies = book.BookCopies - 1;
             db.SaveChanges();
             db.SaveChanges();
-            return RedirectToAction("Rejected", "UserTransaction", new { userId = userId });
+            return RedirectToAction("Rejected", "UserTrans", new { userId = userId });
             /*}
             catch (Exception)
             {
@@ -138,7 +138,7 @@ namespace Library_management2.Controllers
             db.SaveChanges();
             db.Transactions.Remove(transaction);
             db.SaveChanges();
-            return RedirectToAction("Rejected", "UserTransaction", new { userId = userId });
+            return RedirectToAction("Rejected", "UserTrans", new { userId = userId });
             /* }
              catch (Exception)
              {
@@ -188,7 +188,7 @@ namespace Library_management2.Controllers
             transaction.TansDate = DateTime.Now;
             transaction.TransStatus = "Returned";
             db.SaveChanges();
-            return RedirectToAction("Received", "UserTransaction", new { userId = userId });
+            return RedirectToAction("Received", "UserTrans", new { userId = userId });
             /* }
              catch (Exception)
              {
